@@ -21,6 +21,11 @@ var materias = {
 
 var NOTA_MIN = 1, NOTA_MAX = 10, NOTA_APROBADO = 6, nota_max = 0;
 
+var btn = {
+    promedio: document.getElementById("btn_promedio"),
+    materia_max: document.getElementById("btn_materia_max"),
+}
+
 function validarCampo(nota){
     return nota >= NOTA_MIN && nota <= NOTA_MAX;
 }   
@@ -30,10 +35,16 @@ function setFieldStatus(field, status){
 }
 
 function handleInputChange (input, materia) {
+    btn.promedio.setAttribute("disabled", "disabled");
+    btn.materia_max.setAttribute("disabled", "disabled");
+
     var nota = parseInt(input.value);
     materia.nota = nota;
     materia.valido = validarCampo(nota);
     setFieldStatus(input, materia.valido);
+    
+    btn.promedio.removeAttribute("disabled");
+    btn.materia_max.removeAttribute("disabled");
 }
 
 // Recorro las materias y agrego un evento a cada input

@@ -34,17 +34,29 @@ function setFieldStatus(field, status){
     field.setAttribute("class", status ? "form-control is-valid" : "form-control is-invalid");
 }
 
+function corregirCampo(input){
+    // Si el valor del input contiene mas de tres caracteres o es mayor a 10, acortarlo a dos caracteres
+    if(input.value.length > 3 || input.value > NOTA_MAX)
+    input.value = input.value.slice(0, 2);
+
+    // Si el valor del input es mayor a 10, acortarlo a un solo caracter
+    if(input.value > NOTA_MAX || input.value < NOTA_MIN)
+    input.value = input.value.slice(0, 1);
+}
+
 function handleInputChange (input, materia) {
-    btn.promedio.setAttribute("disabled", "disabled");
-    btn.materia_max.setAttribute("disabled", "disabled");
+    // btn.promedio.setAttribute("disabled", "disabled");
+    // btn.materia_max.setAttribute("disabled", "disabled");
+    corregirCampo(input)
+    
 
     var nota = parseInt(input.value);
     materia.nota = nota;
     materia.valido = validarCampo(nota);
     setFieldStatus(input, materia.valido);
-    
-    btn.promedio.removeAttribute("disabled");
-    btn.materia_max.removeAttribute("disabled");
+
+    // btn.promedio.removeAttribute("disabled");
+    // btn.materia_max.removeAttribute("disabled");
 }
 
 // Recorro las materias y agrego un evento a cada input

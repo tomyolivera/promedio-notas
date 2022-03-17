@@ -1,0 +1,10 @@
+.form-control{
+    width: 150px;
+    height:100px;
+    font-size: 30px;
+    outline:none
+}
+
+label{
+    font-size:30px
+}

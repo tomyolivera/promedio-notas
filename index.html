@@ -6,37 +6,48 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Promedio de notas</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div class="container mt-3 p-3 rounded bg-dark text-light">
-        <h2>Promedio de alumnos</h2>
+        <h2 class="text-center">Promedio de alumnos</h2><hr>
+        <h4 class="text-center mb-4">Ingrese las notas de:</h4>
 
         <form id="form_promedios">
-            <div class="mb-3">
-                <label for="nota_matematica">Nota de Matemática</label>
-                <input autocomplete="off" type="number" id="nota_matematica" class="form-control" placeholder="Ingrese la nota de Matematica" />
+            <div class="d-flex justify-content-center text-center">
+                <div class="row">
+                    <div class="col-sm-12 col-md-4">
+                        <div class="form-group d-flex flex-column align-items-center">
+                            <label for="nota_matematica">Matemática</label><br>
+                            <input autocomplete="off" type="number" class="form-control" id="nota_matematica" />
+                        </div>
+                    </div>
+                    <div class="col-sm-12 col-md-4">
+                        <div class="form-group d-flex flex-column align-items-center">
+                            <label for="nota_lengua">Lengua</label><br>
+                            <input autocomplete="off" type="number" class="form-control" id="nota_lengua" />
+                        </div>
+                    </div>
+                    <div class="col-sm-12 col-md-4">
+                        <div class="form-group d-flex flex-column align-items-center">
+                            <label for="nota_efsi">EFSI</label><br>
+                            <input autocomplete="off" type="number" class="form-control" id="nota_efsi" />
+                        </div>
+                    </div>
+                </div>
             </div>
-
-            <div class="mb-3">
-                <label for="nota_lengua">Nota de Lengua</label>
-                <input autocomplete="off" type="number" id="nota_lengua" class="form-control" placeholder="Ingrese la nota de Lengua" />
-            </div>
-
-            <div class="mb-3">
-                <label for="nota_efsi">Nota de EFSI</label>
-                <input autocomplete="off" type="number" id="nota_efsi" class="form-control" placeholder="Ingrese la nota de EFSI" />
-            </div>
-
-            <div>
-                <button type="submit" id="btn_promedio" class="btn btn-primary">Promedio</button>
+            
+            <hr>
+            <div class="text-center mt-4 d-flex justify-content-center">
+                <h3>Obtener</h3>
+                <button type="submit" id="btn_promedio" class="btn btn-primary mx-3">Promedio</button>
                 <button type="button" class="btn btn-warning" id="btn_materia_max">Materia con mayor nota</button>
             </div>
-
         </form>
 
         <div id="resultados" class="mt-3">
-            <div id="promedio"></div>
-            <div id="materias_max_nota"></div>
+            <h5 class="text-center" id="promedio"></div>
+            <h5 class="text-center" id="materias_max_nota"></h5>
         </div>
     </div>
 
